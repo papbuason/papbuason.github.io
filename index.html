@@ -1,35 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Paprapee Buason</title>
-  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    img {
+      border-radius: 10px;
+      width: 180px;
+    }
+    .icons {
+      margin: 15px 0;
+    }
+    .icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-size: 24px;
+    }
+    ul {
+      text-align: left;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <h1>Hello, I’m Pap Buason.</h1>
+  <header>
+    <h1>Paprapee Buason</h1>
+    <div class="nav-buttons">
+      <a href="cv.pdf" target="_blank">CV</a>
+      <a href="publications.html">Publications</a>
+    </div>
+  </header>
 
-  <img src="Photo.jpg" alt="Paprapee Buason" width="200" style="border-radius: 8px;"><br><br>
+  <div class="container">
+    <img src="Photo.jpg" alt="Paprapee Buason">
+    <div class="icons">
+      <a href="https://scholar.google.com/citations?user=Ot7LuVAAAAAJ&hl=en" target="_blank" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/pbuason/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
 
-  <p>Postdoctoral researcher in Theoretical Division at Los Alamos National Laboratory, focused on developing algorithms and solving advanced optimization problems to enhance the reliability and resiliency of power grids.</p>
+    <p>Postdoctoral researcher in the Theoretical Division at Los Alamos National Laboratory, focused on developing algorithms and solving advanced optimization problems to enhance the reliability and resiliency of power grids.</p>
 
-  <h2>🎓 Education</h2>
-  <ul>
-    <li><strong>Ph.D., Electrical Engineering</strong> — Georgia Institute of Technology (2019–2023)  
-      <br>Dissertation: Sample-Based Power Flow Approximations: Computational Methods, Analysis, and Applications
-      <br>Minor: Industrial and Systems Engineering (ISyE)
-    </li>
-    <li><strong>M.S., Electrical Engineering</strong> — University of Illinois at Urbana-Champaign (2016–2019)  
-      <br>Thesis: Cyber-Physical Systems of Microgrids and Control Strategies for Enhancing Electrical Grid Resilience
-    </li>
-    <li><strong>B.S., Electrical Engineering</strong> — University of Illinois at Urbana-Champaign (2012–2016) 
-      <br>Thesis: Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors
-      <br>Minors: Mathematics and Physics
-    </li>
-  </ul>
-
-  <p>
-    📄 <a href="CV.pdf" target="_blank">Download my CV</a><br>
-    🎓 <a href="https://scholar.google.com/citations?user=Ot7LuVAAAAAJ&hl=en">Google Scholar</a><br>
-    📚 <a href="publications.html">Publications</a>
-  </p>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Ph.D., Electrical Engineering</strong>, Georgia Institute of Technology (2019–2023)<br>Dissertation: Sample-Based Power Flow Approximations: Computational Methods, Analysis, and Applications
+      <br>Minor: Industrial and Systems Engineering (ISyE)</li>
+      <li><strong>M.S., Electrical Engineering</strong>, University of Illinois at Urbana-Champaign (2016–2019)<br>Thesis: Cyber-Physical Systems of Microgrids and Control Strategies for Enhancing Electrical Grid Resilience</li>
+      <li><strong>B.S., Electrical Engineering</strong>, University of Illinois at Urbana-Champaign (2012–2016)<br>Thesis: Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors
+      <br>Minors: Mathematics and Physics</li>
+    </ul>
+  </div>
 </body>
 </html>

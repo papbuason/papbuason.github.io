@@ -43,7 +43,9 @@
     .container {
       max-width: 1000px;
       margin: 30px auto;
+      padding: 0 16px; /* Add horizontal padding */
       padding-bottom: calc(60px + 1em);
+      box-sizing: border-box; /* Ensures padding doesn't exceed max-width */
     }
 
     h2 {

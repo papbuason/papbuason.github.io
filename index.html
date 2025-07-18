@@ -37,9 +37,9 @@
     .container {
       max-width: 1000px;
       margin: 30px auto;
-      padding: 0 16px; /* Add horizontal padding */
+      padding: 0 16px;
       padding-bottom: calc(60px + 1em);
-      box-sizing: border-box; /* Ensures padding doesn't exceed max-width */
+      box-sizing: border-box;
       display: flex;
       align-items: flex-start;
     }
@@ -72,6 +72,41 @@
       flex: 1 1 auto;
       font-size: 17px;
     }
+
+    /* Improved Education Styling */
+    .education-section {
+      margin-top: 30px;
+    }
+    .education-section h2 {
+      font-size: 1.6em;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 4px;
+    }
+    .education-entry {
+      border-left: 4px solid #0077cc;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+    .education-entry strong {
+      font-size: 1.1em;
+      display: block;
+      margin-bottom: 4px;
+      color: #222;
+    }
+    .education-entry .institution {
+      font-style: italic;
+      color: #555;
+    }
+    .education-entry .detail {
+      margin-top: 4px;
+      color: #444;
+    }
+    .education-entry .muted {
+      color: #888;
+      font-size: 0.95em;
+    }
+
     ul {
       text-align: left;
     }
@@ -86,7 +121,7 @@
       <a href="publications.html">Publications</a>
       <a href="experience.html">Experience</a>
       <a href="talks.html">Talks</a>
-<!--       <a href="awards.html">Awards</a> -->
+      <!-- <a href="awards.html">Awards</a> -->
       <a href="cv.pdf" target="_blank">CV</a>
     </div>
   </header>
@@ -120,19 +155,30 @@
 
       <p>My research interests lie in power systems, focusing on developing algorithms and solving advanced optimization problems to enhance the reliability and resiliency of power grids.</p>
 
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Ph.D., Electrical Engineering</strong>, Georgia Institute of Technology, 2023<br>
-<!--         Dissertation: Sample-Based Power Flow Approximations: Computational Methods, Analysis, and Applications<br> -->
-        Minor: Industrial and Systems Engineering (ISyE)</li>
+      <!-- Updated Education Section -->
+      <div class="education-section">
+        <h2>Education</h2>
 
-        <li><strong>M.S., Electrical Engineering</strong>, University of Illinois at Urbana-Champaign, 2019<br>
-<!--         Thesis: Cyber-Physical Systems of Microgrids and Control Strategies for Enhancing Electrical Grid Resilience</li> -->
+        <div class="education-entry">
+          <strong>Ph.D., Electrical Engineering</strong>
+          <div class="institution">Georgia Institute of Technology, 2023</div>
+          <!-- <div class="muted"><em>Dissertation:</em> Sample-Based Power Flow Approximations: Computational Methods, Analysis, and Applications</div> -->
+          <div class="detail">Minor: Industrial and Systems Engineering (ISyE)</div>
+        </div>
 
-        <li><strong>B.S., Electrical Engineering (High Honor)</strong>, University of Illinois at Urbana-Champaign, 2016<br>
-<!--         Thesis: Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors<br> -->
-        Minors: Mathematics and Physics</li>
-      </ul>
+        <div class="education-entry">
+          <strong>M.S., Electrical Engineering</strong>
+          <div class="institution">University of Illinois at Urbana-Champaign, 2019</div>
+          <!-- <div class="muted"><em>Thesis:</em> Cyber-Physical Systems of Microgrids and Control Strategies for Enhancing Electrical Grid Resilience</div> -->
+        </div>
+
+        <div class="education-entry">
+          <strong>B.S., Electrical Engineering (High Honor)</strong>
+          <div class="institution">University of Illinois at Urbana-Champaign, 2016</div>
+          <!-- <div class="muted"><em>Thesis:</em> Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors</div> -->
+          <div class="detail">Minors: Mathematics and Physics</div>
+        </div>
+      </div>
 
       <h2>News</h2>
       <ul>
@@ -147,7 +193,8 @@
       </ul>
     </div>
   </div>
-    <footer style="
+
+  <footer style="
     position: fixed;
     bottom: 0;
     left: 0;
@@ -169,4 +216,3 @@
   </footer>
 </body>
 </html>
-

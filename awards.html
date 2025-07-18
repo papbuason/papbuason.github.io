@@ -8,12 +8,43 @@
       font-family: Arial, sans-serif;
       background-color: #f5faff;
       color: #333;
-      padding: 20px 40px;
+      margin: 0;
+      padding: 0;
     }
-    h1, h2 {
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h2 {
       color: #005fa3;
     }
     ul {
+      padding-left: 20px;
       margin-bottom: 30px;
     }
     li {
@@ -25,8 +56,19 @@
   </style>
 </head>
 <body>
-    <h1>Awards</h1>
-    <ul>
+  <header>
+    <h1>Paprapee Buason, Ph.D.</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <a href="awards.html">Awards</a>
+      <a href="cv.pdf" target="_blank">CV</a>
+    </div>
+  </header>
+
+  <div class="container">
 <li>Texas Power and Energy Conference (TPEC) travel fund <i>– March 2024</i></li>
     <li>Graduate student research fund, Department of Electrical and Computer<br>Engineering, Georgia Tech <i>– 2021</i></li>
     <li>High Honors in Electrical and Computer Engineering at UIUC <i>– May 2016</i></li>
@@ -38,5 +80,6 @@
     <li>Ministry of Science and Technology of Thailand scholarship <i>– 2011–2023</i></li>
     <li>Bronze medal, the 9th Thailand Physics Olympiad at Naresuan University, Thailand <i>– May 2010</i></li>
     </ul>
+    </div>
 </body>
 </html>

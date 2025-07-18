@@ -65,7 +65,14 @@
       color: #0077cc;
     }
 
-    /* Timeline-style formatting */
+    .position {
+      font-style: italic;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    /* Experience block formatting */
     .experience {
       border-left: 3px solid #0077cc;
       padding-left: 20px;
@@ -88,6 +95,12 @@
     .experience h2 {
       margin-top: 0;
     }
+
+    .experience hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 10px 0 15px;
+    }
   </style>
 </head>
 <body>
@@ -109,12 +122,14 @@
     <div class="experience">
       <h2>Los Alamos National Laboratory, Los Alamos, NM</h2>
       <p class="position">Postdoctoral Research Associate (Jan 2024 – Present)</p>
+      <hr>
       <ul>
         <li><b>Machine Learning for Power Systems:</b> Utilize machine learning techniques to enable efficient solutions to optimization problems in critical infrastructure networks with a focus on reliability and resiliency.</li>
         <li><b>Sample-Based Conservative Bias Power Flow Approximations:</b> Developed a conservative bias power flow approximation tailored to specific systems and operating ranges, with a balance between conservativeness and accuracy. Presented at IEEE I&CPS Asia 2024, selected for review in IEEE TIA.</li>
         <li><b>Conservative Piecewise Power Flow Linearizations:</b> Developed a conservative piecewise linear approximation that reduces error while maintaining linearity. Accepted to 2025 IEEE Kiel PowerTech.</li>
       </ul>
       <p class="position">Graduate Research Assistant (May–Aug 2022, Jun–Aug 2021)</p>
+      <hr>
       <ul>
         <li><b>Optimal Sensor Placement:</b> Designed optimization techniques for sensor placement to detect voltage violations. Published in EPSR.</li>
         <li><b>Linear Approximations of Power Flow:</b> Developed conservative linear approximations achieving ~20% improved accuracy over traditional methods. Presented at PSCC and published in EPSR.</li>
@@ -124,6 +139,7 @@
     <div class="experience">
       <h2>PB Supercar, Bangkok, Thailand</h2>
       <p class="position">Co-founder (Jul 2015 – Dec 2024)</p>
+      <hr>
       <ul>
         <li><b>Automobile expert and reviewer:</b> Created automotive content for YouTube with over <b>600,000</b> subscribers and <b>124 million</b> views.</li>
       </ul>
@@ -132,12 +148,14 @@
     <div class="experience">
       <h2>Georgia Institute of Technology, Atlanta, GA</h2>
       <p class="position">Graduate Research Assistant (Aug 2019 – Dec 2023)</p>
+      <hr>
       <ul>
         <li><b>Power Flow Problems:</b> Developed axis rotation algorithms in FDPF reducing iterations by up to 54%.</li>
         <li><b>Power System Optimization and Security:</b> Identified key monitoring locations using convex optimization to prevent violations.</li>
         <li><b>State Estimation & Stochastic Optimization:</b> Recovered solutions from convex relaxations using advanced estimation techniques.</li>
       </ul>
       <p class="position">Graduate Teaching Assistant (Aug 2019 – May 2020)</p>
+      <hr>
       <ul>
         <li><b>Courses:</b> ECE 3072 and ECE 2040 — led tutorials, graded, and coordinated with faculty.</li>
       </ul>
@@ -146,6 +164,7 @@
     <div class="experience">
       <h2>Lawrence Livermore National Laboratory, Livermore, CA</h2>
       <p class="position">Computing Graduate Intern (May – Aug 2023)</p>
+      <hr>
       <ul>
         <li><b>Second-Order Sensitivity Analysis:</b> Enhanced computational efficiency with second-order sensitivity matrix. Published in IEEE TPWRS.</li>
         <li><b>Capacity Expansion Planning:</b> Solved planning problems using sample-based approximations in MATLAB and Julia.</li>
@@ -155,6 +174,7 @@
     <div class="experience">
       <h2>Information Trust Institute (ITI), Urbana, IL</h2>
       <p class="position">Graduate Research Assistant (Jul 2017 – May 2019)</p>
+      <hr>
       <ul>
         <li><b>Sensitivity Analysis:</b> Quantified cyber attack impact, reducing estimation time from 2200s to 0.0286s.</li>
         <li><b>Cybersecurity:</b> Designed CEDS microgrid systems under DOE funding.</li>
@@ -167,6 +187,7 @@
     <div class="experience">
       <h2>Optivolt Labs, Chicago, IL</h2>
       <p class="position">Power Engineering Intern (Jul – Aug 2018)</p>
+      <hr>
       <ul>
         <li><b>Solar Battery Charger:</b> Created prototype to increase drone flight time by 10–20%.</li>
         <li><b>Power Optimization:</b> Applied maximum power transfer algorithm for solar charging.</li>
@@ -177,6 +198,7 @@
     <div class="experience">
       <h2>Baancomnuan Tutor School, Bangkok, Thailand</h2>
       <p class="position">Tutor (Multiple Summers: 2015–2019)</p>
+      <hr>
       <ul>
         <li><b>Subjects:</b> Tutored over 100 students in high school and college-level physics and calculus.</li>
       </ul>
@@ -186,6 +208,7 @@
     <div class="experience">
       <h2>Jigsaw English Tutor School, Bangkok, Thailand</h2>
       <p class="position">Tutor (May – Jun 2017)</p>
+      <hr>
       <ul>
         <li><b>SAT Math:</b> Delivered private and online tutoring for high school students.</li>
       </ul>
@@ -195,6 +218,7 @@
     <div class="experience">
       <h2>University of Illinois at Urbana-Champaign, Urbana, IL</h2>
       <p class="position">Grader (Fall 2014 – Spring 2016)</p>
+      <hr>
       <ul>
         <li><b>Courses:</b> ECE 342 and ECE 210 — evaluated homework and discussed grading with TAs.</li>
       </ul>

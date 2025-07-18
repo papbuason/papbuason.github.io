@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
     }
+
     header {
       background-color: #0077cc;
       color: white;
@@ -19,14 +20,17 @@
       justify-content: space-between;
       align-items: center;
     }
+
     header h1 {
       margin: 0;
       color: white;
     }
+
     .nav-buttons {
       display: flex;
       gap: 10px;
     }
+
     .nav-buttons a {
       background-color: white;
       color: #0077cc;
@@ -35,20 +39,25 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     .container {
       max-width: 1000px;
       margin: 30px auto;
-      padding: 0 20px;
+      padding: 0 20px 60px; /* bottom padding to prevent footer overlap */
     }
+
     h2 {
       color: #005fa3;
     }
+
     ul {
       padding-left: 20px;
     }
+
     li {
       margin-bottom: 10px;
     }
+
     a {
       color: #0077cc;
     }
@@ -56,7 +65,7 @@
 </head>
 <body>
   <header>
-    <h1 style="color: white;">Paprapee Buason, Ph.D.</h1>
+    <h1>Paprapee Buason, Ph.D.</h1>
     <div class="nav-buttons">
       <a href="index.html">Home</a>
       <a href="publications.html">Publications</a>
@@ -67,7 +76,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <div class="container">
     <h1>Work Experience</h1>
 
     <h2>Los Alamos National Laboratory, Los Alamos, NM</h2>
@@ -146,7 +155,8 @@
       <li><b>Courses:</b> ECE 342 and ECE 210 — evaluated homework and discussed grading with TAs.</li>
     </ul>
   </div>
-    <footer style="
+
+  <footer style="
     position: fixed;
     bottom: 0;
     left: 0;

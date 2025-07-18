@@ -8,13 +8,44 @@
       font-family: Arial, sans-serif;
       background-color: #f5faff;
       color: #333;
-      padding: 20px 40px;
+      margin: 0;
+      padding: 0;
     }
-    h1, h2 {
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h2 {
       color: #005fa3;
     }
     ul {
       margin-bottom: 30px;
+      padding-left: 20px;
     }
     li {
       margin-bottom: 10px;
@@ -25,6 +56,19 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1>Paprapee Buason, Ph.D.</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <a href="awards.html">Awards</a>
+      <a href="cv.pdf" target="_blank">CV</a>
+    </div>
+  </header>
+
+  <div class="container">
   <h1>Publications</h1>
 
   <h2>Journal Papers</h2>
@@ -152,6 +196,6 @@
     </li>
   </ul>
 
-  <p><a href="index.html">⬅ Back to homepage</a></p>
+  </div>
 </body>
 </html>

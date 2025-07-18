@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="pb-icon.png" type="image/png">
   <meta charset="UTF-8">
   <title>Contact – Paprapee Buason</title>
   <style>
@@ -8,14 +9,54 @@
       font-family: Arial, sans-serif;
       background-color: #f5faff;
       color: #333;
-      padding: 40px;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 16px 100px;
+      box-sizing: border-box;
+    }
+
+    .container h1 {
+      font-size: 1.8em;
       color: #005fa3;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
     }
 
-    p.description {
+    .description {
       font-size: 17px;
       margin-bottom: 25px;
     }
@@ -74,35 +115,70 @@
   </style>
 </head>
 <body>
-  <h1>Contact Me</h1>
-  <p class="description">
-    Below is the contact form if you have any questions regarding my work or would like to discuss potential collaborations.
-  </p>
+  <header>
+    <h1>Paprapee Buason, Ph.D.</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <a href="cv.html" target="_blank">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
 
-  <form id="contact-form" action="https://formspree.io/f/xvgqgloy" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="Name" required>
-    <div class="error" id="name-error">Please enter your name.</div>
+  <div class="container">
+    <h1>Contact</h1>
+    <p class="description">
+      Below is the contact form if you have any questions regarding my work or would like to discuss potential collaborations. Please complete all fields before submitting.
+    </p>
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="Email" required>
-    <div class="error" id="email-error">Please enter a valid email address.</div>
+    <form id="contact-form" action="https://formspree.io/f/xvgqgloy" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="Name" required>
+      <div class="error" id="name-error">Please enter your name.</div>
 
-    <label for="institution">Institution</label>
-    <input type="text" id="institution" name="Institution" required>
-    <div class="error" id="institution-error">Please enter your institution.</div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="Email" required>
+      <div class="error" id="email-error">Please enter a valid email address.</div>
 
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="Subject" required>
-    <div class="error" id="subject-error">Please enter a subject.</div>
+      <label for="institution">Institution</label>
+      <input type="text" id="institution" name="Institution" required>
+      <div class="error" id="institution-error">Please enter your institution.</div>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" required></textarea>
-    <div class="error" id="message-error">Please enter your message.</div>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="Subject" required>
+      <div class="error" id="subject-error">Please enter a subject.</div>
 
-    <button type="submit">Send Message</button>
-    <div class="success-message" id="success-message">Message sent successfully!</div>
-  </form>
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" required></textarea>
+      <div class="error" id="message-error">Please enter your message.</div>
+
+      <button type="submit">Send Message</button>
+      <div class="success-message" id="success-message">Message sent successfully!</div>
+    </form>
+  </div>
+
+  <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5faff;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+  ">
+    <p style="margin: 0;">&copy; 2025 Paprapee Buason. Hosted by GitHub. Last updated: <span id="last-updated"></span></p>
+    <script>
+      const lastModified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('last-updated').textContent = lastModified.toLocaleDateString(undefined, options);
+    </script>
+  </footer>
 
   <script>
     const form = document.getElementById('contact-form');

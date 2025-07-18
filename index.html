@@ -143,5 +143,14 @@
       </ul>
     </div>
   </div>
+  <footer style="text-align: center; font-size: 14px; padding: 20px; color: #666;">
+    <p>&copy; 2025 Paprapee Buason. Hosted by GitHub. Last updated: <span id="last-updated"></span></p>
+    <script>
+      const lastModified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('last-updated').textContent = lastModified.toLocaleDateString(undefined, options);
+    </script>
+  </footer>
 </body>
 </html>
+

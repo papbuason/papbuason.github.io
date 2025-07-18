@@ -8,9 +8,39 @@
       font-family: Arial, sans-serif;
       background-color: #f5faff;
       color: #333;
-      padding: 20px 40px;
+      margin: 0;
+      padding: 0;
     }
-    h1 {
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h2 {
       color: #005fa3;
     }
     ul {
@@ -25,30 +55,42 @@
   </style>
 </head>
 <body>
-  <h1>Talks & Presentations</h1>
-  <ul>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Beyond Traditional Linearizations: Enhancing Power Flow Approximations with Second-Order Sensitivities," <i>International Conference on Continuous Optimization (ICCOPT)</i>, The University of Southern California, July 24, 2025.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Beyond Traditional Linearizations: Enhancing Power Flow Approximations with Second-Order Sensitivities," <i>Postdoc Research Seminar Series</i>, Los Alamos National Laboratory, July 17, 2025.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Approximations with Second-Order Sensitivity Insights," <i>IEEE Kiel PowerTech</i>, Kiel, Germany, June 29–July 3, 2025.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Sample-Based Piecewise Linear Power Flow Approximations Using Second-Order Sensitivities," <i>NM Postdoc Research Symposium</i>, Albuquerque, NM, March 28, 2025.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Sample-Based Piecewise Linear Power Flow Approximations Using Second-Order Sensitivities," <i>Conference on Data Analysis (CoDA)</i>, Santa Fe, NM, February 25, 2025.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Linearizations: Sample-Based Conservative Approximations and Second-Order Sensitivity Insights," <i>CNLS Postdoc Seminar</i>, LANL, November 14, 2024.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Linearizations: Sample-Based Conservative Approximations and Second-Order Sensitivity Insights," <i>2nd International Conference on Power and Renewable Energy Engineering (PREE)</i>, Sendai, Japan, October 25–28, 2024.</li>
-    <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "A Data-Driven Method to Identify Critical Location in Distribution Grids," <i>Los Alamos National Laboratory Student Symposium</i>, August 1, 2022.</li>
-    <li><b>P. Buason</b>, D.K. Molzahn, L. Roald, M.K. Hedman, K. Girigoudar , and M. He, "Who Are Controlling the DERs?  Increasing DER Hosting Capacity Through Targeted Modeling, Sensing, and Control," <i>PSERC IAB Meeting</i>, May 2022.</li>
-    <li>K. Girigoudar, <b>P. Buason</b>, M. He,  D.K. Molzahn, L. Roald, and M.K. Hedman, "Who Are Controlling the DERs?  Increasing DER Hosting Capacity Through Targeted Modeling, Sensing, and Control," <i>PSERC</i>, December 2021.</li>
-    <li>D.K. Molzahn and <b>P. Buason</b>, "A Bilevel Optimization Approach to Sensor Placement in Electric Distribution Systems," <i>INFORMS Annual Meeting 2021</i>, October 26, 2021.</li>
-    <li><b>P. Buason</b> and D.K. Molzahn, "Locating Sensors to Identify Violations of Critical Limits in Distribution Systems," <i>IEEE Power and Energy Society General Meeting</i>, July 28, 2021.</li>
-    <li>D. Parachuri, E. White, <b>P. Buason</b>, et al., "Utilization of Machine Learning to Optimize Axis Rotations in Fast Decoupled Power Flow," <i>Georgia Tech ORS Poster</i>, Atlanta, GA, April 12, 2021.</li>
-    <li><b>P. Buason</b> and D.K. Molzahn, "Analysis of FDPF via Axis Rotations," <i>Los Alamos National Laboratory Grid Science Winter School and Conference</i>, January 12, 2021.</li>
-    <li><b>P. Buason</b>, H.J. Liu, H. Choi, et al., "Multi-layered Resilient Microgrid Networks," <i>IEEE Innovative Smart Grid Technologies (ISGT) North America</i>, Washington, DC, February 18, 2019.</li>
-    <li><b>P. Buason</b>, H.J. Liu, H. Choi, and A. Valdes, "Attack Prevention Strategy in Microgrids via Reachability Analysis," <i>Grid Engineering for Accelerated Renewable Energy Deployment (GEARED)</i>, New Orleans, LA, February 5–7, 2019.</li>
-    <li><b>P. Buason</b>, H.J. Liu, M. Backes, et al., "Attack Characterization and Mitigation Logic for Decentralized Microgrid Controls," <i>Grid Engineering for Accelerated Renewable Energy Deployment (GEARED)</i>, San Antonio, TX, January 23–24, 2018.</li>
-    <li><b>P. Buason</b> and J.E. Schutt-Ainé, "Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, April 27, 2016.</li>
-    <li><b>P. Buason</b>, X. Chen, and J.E. Schutt-Ainé, "Reduction of Skin Effect Losses by Laminated Conductors Modeled in Ansys Q3D Extractor," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, April 30, 2015.</li>
-    <li><b>P. Buason</b>, X. Chen, and J.E. Schutt-Ainé, "Reduction of Skin Effect Losses: Laminated Conductors Modeled in Ansys HFSS," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, December 4, 2014.</li>
-  </ul>
+  <header>
+    <h1>Paprapee Buason, Ph.D.</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <a href="awards.html">Awards</a>
+      <a href="cv.pdf" target="_blank">CV</a>
+    </div>
+  </header>
 
-  <p><a href="index.html">⬅ Back to homepage</a></p>
+  <div class="container">
+    <h2>Talks & Presentations</h2>
+    <ul>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Beyond Traditional Linearizations: Enhancing Power Flow Approximations with Second-Order Sensitivities," <i>International Conference on Continuous Optimization (ICCOPT)</i>, The University of Southern California, July 24, 2025.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Beyond Traditional Linearizations: Enhancing Power Flow Approximations with Second-Order Sensitivities," <i>Postdoc Research Seminar Series</i>, Los Alamos National Laboratory, July 17, 2025.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Approximations with Second-Order Sensitivity Insights," <i>IEEE Kiel PowerTech</i>, Kiel, Germany, June 29–July 3, 2025.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Sample-Based Piecewise Linear Power Flow Approximations Using Second-Order Sensitivities," <i>NM Postdoc Research Symposium</i>, Albuquerque, NM, March 28, 2025.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Sample-Based Piecewise Linear Power Flow Approximations Using Second-Order Sensitivities," <i>Conference on Data Analysis (CoDA)</i>, Santa Fe, NM, February 25, 2025.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Linearizations: Sample-Based Conservative Approximations and Second-Order Sensitivity Insights," <i>CNLS Postdoc Seminar</i>, LANL, November 14, 2024.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "Adaptive Power Flow Linearizations: Sample-Based Conservative Approximations and Second-Order Sensitivity Insights," <i>2nd International Conference on Power and Renewable Energy Engineering (PREE)</i>, Sendai, Japan, October 25–28, 2024.</li>
+      <li><b>P. Buason</b>, S. Misra, and D.K. Molzahn, "A Data-Driven Method to Identify Critical Location in Distribution Grids," <i>Los Alamos National Laboratory Student Symposium</i>, August 1, 2022.</li>
+      <li><b>P. Buason</b>, D.K. Molzahn, L. Roald, M.K. Hedman, K. Girigoudar , and M. He, "Who Are Controlling the DERs?  Increasing DER Hosting Capacity Through Targeted Modeling, Sensing, and Control," <i>PSERC IAB Meeting</i>, May 2022.</li>
+      <li>K. Girigoudar, <b>P. Buason</b>, M. He,  D.K. Molzahn, L. Roald, and M.K. Hedman, "Who Are Controlling the DERs?  Increasing DER Hosting Capacity Through Targeted Modeling, Sensing, and Control," <i>PSERC</i>, December 2021.</li>
+      <li>D.K. Molzahn and <b>P. Buason</b>, "A Bilevel Optimization Approach to Sensor Placement in Electric Distribution Systems," <i>INFORMS Annual Meeting 2021</i>, October 26, 2021.</li>
+      <li><b>P. Buason</b> and D.K. Molzahn, "Locating Sensors to Identify Violations of Critical Limits in Distribution Systems," <i>IEEE Power and Energy Society General Meeting</i>, July 28, 2021.</li>
+      <li>D. Parachuri, E. White, <b>P. Buason</b>, et al., "Utilization of Machine Learning to Optimize Axis Rotations in Fast Decoupled Power Flow," <i>Georgia Tech ORS Poster</i>, Atlanta, GA, April 12, 2021.</li>
+      <li><b>P. Buason</b> and D.K. Molzahn, "Analysis of FDPF via Axis Rotations," <i>Los Alamos National Laboratory Grid Science Winter School and Conference</i>, January 12, 2021.</li>
+      <li><b>P. Buason</b>, H.J. Liu, H. Choi, et al., "Multi-layered Resilient Microgrid Networks," <i>IEEE Innovative Smart Grid Technologies (ISGT) North America</i>, Washington, DC, February 18, 2019.</li>
+      <li><b>P. Buason</b>, H.J. Liu, H. Choi, and A. Valdes, "Attack Prevention Strategy in Microgrids via Reachability Analysis," <i>Grid Engineering for Accelerated Renewable Energy Deployment (GEARED)</i>, New Orleans, LA, February 5–7, 2019.</li>
+      <li><b>P. Buason</b>, H.J. Liu, M. Backes, et al., "Attack Characterization and Mitigation Logic for Decentralized Microgrid Controls," <i>Grid Engineering for Accelerated Renewable Energy Deployment (GEARED)</i>, San Antonio, TX, January 23–24, 2018.</li>
+      <li><b>P. Buason</b> and J.E. Schutt-Ainé, "Computational Electromagnetic Study of Reduction of Skin-Effect Losses by Using Laminated Conductors," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, April 27, 2016.</li>
+      <li><b>P. Buason</b>, X. Chen, and J.E. Schutt-Ainé, "Reduction of Skin Effect Losses by Laminated Conductors Modeled in Ansys Q3D Extractor," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, April 30, 2015.</li>
+      <li><b>P. Buason</b>, X. Chen, and J.E. Schutt-Ainé, "Reduction of Skin Effect Losses: Laminated Conductors Modeled in Ansys HFSS," <i>UIUC Promoting Undergraduate Research in Engineering (P.U.R.E.)</i>, December 4, 2014.</li>
+    </ul>
+  </div>
 </body>
 </html>

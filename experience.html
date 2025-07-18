@@ -146,5 +146,26 @@
       <li><b>Courses:</b> ECE 342 and ECE 210 — evaluated homework and discussed grading with TAs.</li>
     </ul>
   </div>
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5faff;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+  ">
+    <p style="margin: 0;">&copy; 2025 Paprapee Buason. Hosted by GitHub. Last updated: <span id="last-updated"></span></p>
+    <script>
+      const lastModified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('last-updated').textContent = lastModified.toLocaleDateString(undefined, options);
+    </script>
+  </footer>
+
 </body>
 </html>

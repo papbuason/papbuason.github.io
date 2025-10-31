@@ -21,9 +21,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    header h1 {
-      margin: 0;
-    }
+    header h1 { margin: 0; }
     .nav-buttons a {
       background-color: white;
       color: #0077cc;
@@ -53,12 +51,8 @@
       color: white;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005fa3;
-    }
-    .hidden {
-      display: none;
-    }
+    button:hover { background-color: #005fa3; }
+    .hidden { display: none; }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -67,16 +61,16 @@
     th, td {
       border: 1px solid #ccc;
       padding: 6px;
-      text-align: center;
+      text-align: left;
     }
     th {
       background-color: #0077cc;
       color: white;
     }
-    .error {
-      color: red;
-      font-weight: bold;
-    }
+    .error { color: red; font-weight: bold; }
+    .weekday { color: black; }
+    .weekend { color: #004a99; font-weight: bold; }
+    .special { color: darkred; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -92,6 +86,7 @@
     </div>
   </header>
 
+  <!-- Login -->
   <div class="container" id="login-container">
     <h2>Login</h2>
     <label>Username:</label>
@@ -102,8 +97,13 @@
     <p id="login-error" class="error"></p>
   </div>
 
+  <!-- Inputs -->
   <div class="container hidden" id="input-container">
     <h2>Enter Parameters</h2>
+    <label>Year:</label>
+    <input type="number" id="year" min="1900" max="2100" placeholder="e.g., 2025">
+    <label>Month (1-12):</label>
+    <input type="number" id="month" min="1" max="12" placeholder="e.g., 10">
     <label>Number of Workers (n):</label>
     <input type="number" id="n" min="1" placeholder="e.g., 6">
     <label>Preferred Weekend Off (e.g., [0,2,1,0]):</label>
@@ -112,6 +112,7 @@
     <p id="input-error" class="error"></p>
   </div>
 
+  <!-- Results -->
   <div class="container hidden" id="result-container">
     <h2>Generated Schedule</h2>
     <div id="schedule-output"></div>
@@ -132,10 +133,16 @@
 
     function generateSchedule() {
       const n = parseInt(document.getElementById('n').value);
+      const month = parseInt(document.getElementById('month').value);
+      const year = parseInt(document.getElementById('year').value);
       const weekend_off_input = document.getElementById('weekend_off').value.trim();
       const err = document.getElementById('input-error');
       err.textContent = "";
 
+      if (isNaN(year) || isNaN(month) || month < 1 || month > 12) {
+        err.textContent = "Please enter a valid year and month (1–12).";
+        return;
+      }
       if (isNaN(n) || n <= 0) {
         err.textContent = "Number of workers must be a positive integer.";
         return;
@@ -155,29 +162,27 @@
         return;
       }
 
-      // Simple schedule logic (randomized fair assignment)
-      const numDays = 30;
-      const days = ["Su","M","T","W","Th","F","Sa"];
-      const schedule = Array.from({ length: n }, () => Array(numDays).fill(0));
+      const daysInMonth = new Date(year, month, 0).getDate();
+      const days = ["Su", "M", "T", "W", "Th", "F", "Sa"];
+      const schedule = Array.from({ length: n }, () => Array(daysInMonth).fill(0));
 
-      for (let d = 0; d < numDays; d++) {
-        const dayName = days[d % 7];
+      // Assign shifts
+      for (let d = 0; d < daysInMonth; d++) {
+        const dayName = days[new Date(year, month - 1, d + 1).getDay()];
         let numWorkers = (dayName === "Sa" || dayName === "Su") ? 2 : 1;
         const assigned = new Set();
-        while (assigned.size < numWorkers) {
-          assigned.add(Math.floor(Math.random() * n));
-        }
-        for (const i of assigned) schedule[i][d] = 1;
+        while (assigned.size < numWorkers) assigned.add(Math.floor(Math.random() * n));
+        for (const i of assigned) schedule[i][d] = numWorkers; // 1 or 2
       }
 
       // Apply weekend off preferences
       for (let i = 0; i < n; i++) {
         const woff = weekend_off[i];
         if (woff > 0) {
-          const start = (woff - 1) * 7 + 6; // Saturday index
-          if (start < numDays) {
+          const start = (woff - 1) * 7 + 6;
+          if (start < daysInMonth) {
             schedule[i][start] = 0;
-            if (start + 1 < numDays) schedule[i][start + 1] = 0;
+            if (start + 1 < daysInMonth) schedule[i][start + 1] = 0;
           }
         }
       }
@@ -185,25 +190,28 @@
       // Display
       document.getElementById('input-container').classList.add('hidden');
       const outDiv = document.getElementById('schedule-output');
-      outDiv.innerHTML = createTable(schedule, days);
+      outDiv.innerHTML = createCompactTable(schedule, days, year, month);
       document.getElementById('result-container').classList.remove('hidden');
     }
 
-    function createTable(schedule, days) {
-      const numDays = schedule[0].length;
-      let headerRow = "<tr><th>Worker</th>";
-      for (let d = 0; d < numDays; d++) {
-        const dayName = days[d % 7];
-        headerRow += `<th>${dayName}${String(d+1).padStart(2,'0')}</th>`;
-      }
-      headerRow += "</tr>";
-
-      let body = "";
+    function createCompactTable(schedule, days, year, month) {
+      let tableHTML = `<table><tr><th>Worker</th><th>Assigned Dates</th></tr>`;
       for (let i = 0; i < schedule.length; i++) {
-        body += `<tr><td><b>Worker ${i+1}</b></td>` +
-                schedule[i].map(x => `<td>${x}</td>`).join('') + "</tr>";
+        let assignments = [];
+        for (let d = 0; d < schedule[i].length; d++) {
+          if (schedule[i][d] > 0) {
+            const dayIdx = new Date(year, month - 1, d + 1).getDay();
+            const dayName = days[dayIdx];
+            const colorClass = (schedule[i][d] === 2)
+              ? "special"
+              : (dayName === "Sa" || dayName === "Su") ? "weekend" : "weekday";
+            assignments.push(`<span class="${colorClass}">${d + 1}(${dayName})</span>`);
+          }
+        }
+        tableHTML += `<tr><td><b>Worker ${i + 1}</b></td><td>${assignments.join(', ')}</td></tr>`;
       }
-      return `<table>${headerRow}${body}</table>`;
+      tableHTML += `</table>`;
+      return tableHTML;
     }
   </script>
 </body>

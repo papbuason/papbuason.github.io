@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fair Work Schedule</title>
+  <link rel="icon" href="pb-icon.png" type="image/png">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin: 6px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .hidden {
+      display: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fair Work Schedule</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <a href="cv.html" target="_blank">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <div class="container" id="login-container">
+    <h2>Login</h2>
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter username">
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkLogin()">Login</button>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <div class="container hidden" id="input-container">
+    <h2>Enter Parameters</h2>
+    <label>Number of Workers (n):</label>
+    <input type="number" id="n" min="1" placeholder="e.g., 6">
+    <label>Preferred Weekend Off (e.g., [0,2,1,0]):</label>
+    <input type="text" id="weekend_off" placeholder="e.g., [0,0,0,0,0,0]">
+    <button onclick="generateSchedule()">Generate Schedule</button>
+    <p id="input-error" class="error"></p>
+  </div>
+
+  <div class="container hidden" id="result-container">
+    <h2>Generated Schedule</h2>
+    <div id="schedule-output"></div>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const err = document.getElementById('login-error');
+      if (user === 'popcorn' && pass === 'Popcorn22') {
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('input-container').classList.remove('hidden');
+      } else {
+        err.textContent = "Invalid username or password!";
+      }
+    }
+
+    function generateSchedule() {
+      const n = parseInt(document.getElementById('n').value);
+      const weekend_off_input = document.getElementById('weekend_off').value.trim();
+      const err = document.getElementById('input-error');
+      err.textContent = "";
+
+      if (isNaN(n) || n <= 0) {
+        err.textContent = "Number of workers must be a positive integer.";
+        return;
+      }
+
+      let weekend_off;
+      try {
+        weekend_off = JSON.parse(weekend_off_input);
+        if (!Array.isArray(weekend_off)) throw "Not array";
+      } catch {
+        err.textContent = "Weekend off must be a valid array, e.g., [0,2,1,0].";
+        return;
+      }
+
+      if (weekend_off.length !== n) {
+        err.textContent = `The weekend_off vector must have length ${n}.`;
+        return;
+      }
+
+      // Simple schedule logic (randomized fair assignment)
+      const numDays = 30;
+      const days = ["Su","M","T","W","Th","F","Sa"];
+      const schedule = Array.from({ length: n }, () => Array(numDays).fill(0));
+
+      for (let d = 0; d < numDays; d++) {
+        const dayName = days[d % 7];
+        let numWorkers = (dayName === "Sa" || dayName === "Su") ? 2 : 1;
+        const assigned = new Set();
+        while (assigned.size < numWorkers) {
+          assigned.add(Math.floor(Math.random() * n));
+        }
+        for (const i of assigned) schedule[i][d] = 1;
+      }
+
+      // Apply weekend off preferences
+      for (let i = 0; i < n; i++) {
+        const woff = weekend_off[i];
+        if (woff > 0) {
+          const start = (woff - 1) * 7 + 6; // Saturday index
+          if (start < numDays) {
+            schedule[i][start] = 0;
+            if (start + 1 < numDays) schedule[i][start + 1] = 0;
+          }
+        }
+      }
+
+      // Display
+      document.getElementById('input-container').classList.add('hidden');
+      const outDiv = document.getElementById('schedule-output');
+      outDiv.innerHTML = createTable(schedule, days);
+      document.getElementById('result-container').classList.remove('hidden');
+    }
+
+    function createTable(schedule, days) {
+      const numDays = schedule[0].length;
+      let headerRow = "<tr><th>Worker</th>";
+      for (let d = 0; d < numDays; d++) {
+        const dayName = days[d % 7];
+        headerRow += `<th>${dayName}${String(d+1).padStart(2,'0')}</th>`;
+      }
+      headerRow += "</tr>";
+
+      let body = "";
+      for (let i = 0; i < schedule.length; i++) {
+        body += `<tr><td><b>Worker ${i+1}</b></td>` +
+                schedule[i].map(x => `<td>${x}</td>`).join('') + "</tr>";
+      }
+      return `<table>${headerRow}${body}</table>`;
+    }
+  </script>
+</body>
+</html>

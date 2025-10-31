@@ -240,4 +240,20 @@
           const val=schedule[i][d];
           if(val>0){
             const dayIdx=new Date(year, month-1,d+1).getDay();
-            const dayName
+            const dayName=days[dayIdx];
+            let colorClass="";
+            if(val===2) colorClass="special";
+            else colorClass="weekday";
+            assignments.push(`<span class="${colorClass}">${d+1}(${dayName})</span>`);
+          }
+        }
+        tableHTML+=`<tr><td><b>Worker ${i+1}</b></td><td>${assignments.join(', ') || '<i>none</i>'}</td></tr>`;
+      }
+      tableHTML+=`</table>`;
+      tableHTML+=`<p><b>Total points per worker:</b> [${total_points.map(p=>p.toFixed(1)).join(', ')}]</p>`;
+      tableHTML+=`<p><b>Fairness deviation (delta):</b> [${delta.map(d=>d.toFixed(1)).join(', ')}]</p>`;
+      return tableHTML;
+    }
+  </script>
+</body>
+</html>

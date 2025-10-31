@@ -71,6 +71,12 @@
     .weekday { color: black; }
     .weekend { color: #004a99; font-weight: bold; }
     .special { color: darkred; font-weight: bold; }
+    .top-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +105,9 @@
 
   <!-- Inputs -->
   <div class="container hidden" id="input-container">
+    <div class="top-buttons">
+      <button onclick="logout()">Log Out</button>
+    </div>
     <h2>Enter Parameters</h2>
     <label>Year:</label>
     <input type="number" id="year" min="1900" max="2100" placeholder="e.g., 2025">
@@ -114,21 +123,51 @@
 
   <!-- Results -->
   <div class="container hidden" id="result-container">
+    <div class="top-buttons">
+      <button onclick="refreshInput()">New Input</button>
+      <button onclick="logout()">Log Out</button>
+    </div>
     <h2>Generated Schedule</h2>
     <div id="schedule-output"></div>
   </div>
 
   <script>
+    // --- Check login persistence ---
+    window.onload = function() {
+      if (localStorage.getItem('loggedIn') === 'true') {
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('input-container').classList.remove('hidden');
+      }
+    };
+
     function checkLogin() {
       const user = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value.trim();
       const err = document.getElementById('login-error');
       if (user === 'popcorn' && pass === 'Popcorn22') {
+        localStorage.setItem('loggedIn', 'true');
         document.getElementById('login-container').classList.add('hidden');
         document.getElementById('input-container').classList.remove('hidden');
       } else {
         err.textContent = "Invalid username or password!";
       }
+    }
+
+    function logout() {
+      localStorage.removeItem('loggedIn');
+      document.getElementById('input-container').classList.add('hidden');
+      document.getElementById('result-container').classList.add('hidden');
+      document.getElementById('login-container').classList.remove('hidden');
+    }
+
+    function refreshInput() {
+      document.getElementById('result-container').classList.add('hidden');
+      document.getElementById('input-container').classList.remove('hidden');
+      document.getElementById('input-error').textContent = '';
+      document.getElementById('n').value = '';
+      document.getElementById('year').value = '';
+      document.getElementById('month').value = '';
+      document.getElementById('weekend_off').value = '';
     }
 
     function generateSchedule() {
@@ -166,16 +205,14 @@
       const days = ["Su", "M", "T", "W", "Th", "F", "Sa"];
       const schedule = Array.from({ length: n }, () => Array(daysInMonth).fill(0));
 
-      // Assign shifts
       for (let d = 0; d < daysInMonth; d++) {
         const dayName = days[new Date(year, month - 1, d + 1).getDay()];
         let numWorkers = (dayName === "Sa" || dayName === "Su") ? 2 : 1;
         const assigned = new Set();
         while (assigned.size < numWorkers) assigned.add(Math.floor(Math.random() * n));
-        for (const i of assigned) schedule[i][d] = numWorkers; // 1 or 2
+        for (const i of assigned) schedule[i][d] = numWorkers;
       }
 
-      // Apply weekend off preferences
       for (let i = 0; i < n; i++) {
         const woff = weekend_off[i];
         if (woff > 0) {
@@ -187,7 +224,6 @@
         }
       }
 
-      // Display
       document.getElementById('input-container').classList.add('hidden');
       const outDiv = document.getElementById('schedule-output');
       outDiv.innerHTML = createCompactTable(schedule, days, year, month);

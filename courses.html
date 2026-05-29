@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="pb-icon.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Courses – Paprapee Buason</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: white;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons a {
+      background-color: white;
+      color: #0077cc;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 16px;
+      padding-bottom: calc(60px + 1em);
+      box-sizing: border-box;
+    }
+
+    h2 {
+      color: #005fa3;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #0077cc;
+    }
+
+    .position {
+      font-style: italic;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    /* Experience block formatting */
+    .experience {
+      border-left: 3px solid #0077cc;
+      padding-left: 20px;
+      margin-left: 10px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .experience::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background-color: #0077cc;
+      border-radius: 50%;
+    }
+
+    .experience h2 {
+      margin-top: 0;
+    }
+
+    .experience hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 10px 0 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+  <span style="color:#ffcc00; font-weight:bold; text-shadow: 1px 1px 2px #003d66; font-size: 1.2em;">Pap</span>rapee Buason, Ph.D.
+</h1>
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="courses.html">Courses</a>
+      <a href="experience.html">Experience</a>
+      <a href="talks.html">Talks</a>
+      <!-- <a href="awards.html">Awards</a> -->
+      <a href="cv.html" target="_blank">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <div class="container">
+  <h2>Mathematics for Mechatronics</h2>
+  <hr>
+
+  <ul>
+    <li><a href="linear-algebra.pdf" target="_blank">Linear Algebra</a></li>
+    <!-- <li><a href="complex-numbers.pdf" target="_blank">Complex Numbers</a></li>
+    <li><a href="partial-fractions.pdf" target="_blank">Partial Fractions</a></li>
+    <li><a href="calculus-for-mechatronics-engineering.pdf" target="_blank">Calculus for Mechatronics Engineering</a></li>
+    <li><a href="differential-equations.pdf" target="_blank">Differential Equations</a></li>
+    <li><a href="laplace-transform.pdf" target="_blank">Laplace Transform</a></li>
+    <li><a href="numerical-methods.pdf" target="_blank">Numerical Methods</a></li>
+    <li><a href="mathematical-applications-in-mechatronics-engineering.pdf" target="_blank">
+      Mathematical Applications in Mechatronics Engineering
+    </a></li> -->
+  </ul>
+</div>
+
+   
+
+  <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5faff;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+  ">
+    <p style="margin: 0;">&copy; 2025 Paprapee Buason. Hosted by GitHub. Last updated: <span id="last-updated"></span></p>
+    <script>
+      const lastModified = new Date(document.lastModified);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('last-updated').textContent = lastModified.toLocaleDateString(undefined, options);
+    </script>
+  </footer>
+</body>
+</html>
